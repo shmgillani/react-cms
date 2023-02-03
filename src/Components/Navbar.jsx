@@ -31,6 +31,10 @@ const Navbar = () => {
           {" "}
           Add Users
         </NavLink>
+        <NavLink to="/allAyahs" className={classes.spacing}>
+          {" "}
+          All Ayahs
+        </NavLink>
       </Toolbar>
     </AppBar>
   );

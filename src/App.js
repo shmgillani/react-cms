@@ -5,6 +5,8 @@ import AllUsers from "./Components/AllUsers";
 import AddUser from "./Components/AddUser";
 import EditUser from "./Components/EditUser";
 import NotFound from "./Components/NotFound";
+import AllAyahs from "./Components/AllAyahs";
+import EditAyah from "./Components/EditAyah";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 function App() {
@@ -16,6 +18,8 @@ function App() {
         <Route path="/all" component={AllUsers} exact />
         <Route path="/add" component={AddUser} exact />
         <Route path="/edit/:id" component={EditUser} exact />
+        <Route path="/allAyahs" component={AllAyahs} exact />
+        <Route path="/editAyah/:number" component={EditAyah} exact />
         <Route component={NotFound} />
       </Switch>
     </Router>
