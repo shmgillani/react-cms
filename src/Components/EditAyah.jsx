@@ -9,7 +9,7 @@ import {
   FormGroup,
   Button,
 } from "@material-ui/core";
-import { editAyah, getAllAyahs } from "../service/api";
+import { editPage } from "../service/api";
 import { useHistory, useLocation } from "react-router-dom";
 
 const EditAyah = () => {
@@ -17,69 +17,75 @@ const EditAyah = () => {
   const { query } = useLocation();
 
   let initialValue = {
-    number: query.id,
+    number: query.number,
     text: query.text,
-    urTranslation: query.urTranslation,
-    enTranslation: query.enTranslation,
+    numberInSurah: query.numberInSurah,
+    juz: query.juz,
+    juz_name: query.juz_name,
+    page: query.page,
+    hizbQuarter: query.hizbQuarter,
+    ayahsNumber: query.ayahsNumber,
+    surahNumber: query.surahNumber,
+    numberInPage: query.numberInPage,
     audio: query.audio,
+    audioIdentifier: query.audioIdentifier,
+    translation: query.translation,
   };
 
-  const loadAyahData = async () => {
-    const response = await getAllAyahs(query.id);
-    // console.log(response);
-    setAyah(response);
-  };
+  // const loadAyahData = async () => {
+  //   const response = await getAllAyahs(query.id);
+  //   // console.log(response);
+  //   setAyah(response);
+  // };
 
-  useEffect(() => {
-    loadAyahData();
-  }, []);
+  // useEffect(() => {
+  //   loadAyahData();
+  // }, []);
 
+  const [page, setPage] = useState({});
   const [ayah, setAyah] = useState(initialValue);
   // const { ayahText, urTranslation, enTranslation, audio } = ayah;
 
   // console.log("==========================", initialValue);
 
-  // const onValueChange = (e) => {
-  //   //  console.log(e);
-  //   // console.log(e.target.value);
-  //   setAyah({ ...ayah, [e.target.name]: e.target.value });
+  const onValueChange = (e) => {
+    const { name, value } = e.target;
+    // console.log("-------------------translation-----------------------",query.pages.ayahs[query.number].translation[name]);
+    query.pages.ayahs[query.numberInPage].translation[name] = value;
+
+    setPage(query.pages);
+
+    // setAyah({ ...ayah });
+  };
+  // console.log("ayaah object", ayah);
+  // const updateUrTrans = (ur) => {
+  //   let newAyah = [...ayah];
+  //   newAyah.map((data) => (data.translation.ur = ur));
+  //   setAyah(newAyah);
   // };
 
-  const updateUrTrans = (ur) => {
-    let newAyah = [...ayah];
-    newAyah.map((data) =>
-      data.map((d) => {
-        d.translation.ur = ur;
-      })
-    );
-    setAyah(newAyah);
-  };
+  // const updateEnTrans = (en) => {
+  //   en.preventDefault();
+  //   let newAyah = [...ayah];
+  //   // console.log(newAyah);
+  //   newAyah.map((data) => {
+  //     console.log(en);
+  //     // data.translation.en = en;
+  //   });
+  //   setAyah(newAyah);
+  //   console.log("----------------", ayah);
+  // };
 
-  const updateEnTrans = (en) => {
-    let newAyah = [...ayah];
-    console.log(newAyah);
-    newAyah.map((data) =>
-      data.map((d) => {
-        d.translation.en = en;
-      })
-    );
-    setAyah(newAyah);
-  };
+  // const updateAudio = (audio) => {
+  //   let newAyah = [...ayah];
+  //   newAyah.map((data) => (data.translation.audio = audio));
+  //   setAyah(newAyah);
+  // };
 
-  const updateAudio = (audio) => {
-    let newAyah = [...ayah];
-    newAyah.map((data) =>
-      data.map((d) => {
-        d.translation.audio = audio;
-      })
-    );
-    setAyah(newAyah);
-  };
-
-  const editAyahDetails = async () => {
-    // console.log("------------------------", ayah);
-    await editAyah(query.page, query.id, ayah);
-    history.push("/allAyahs");
+  const editPageDetails = async () => {
+    // console.log("--------------------------------------", page);
+    await editPage(query.pages.id, page);
+    history.push(`/allPages`);
   };
 
   return (
@@ -91,28 +97,28 @@ const EditAyah = () => {
         <FormGroup>
           <FormControl>
             <label>Ayah:</label>
-            <Input name="ayahText" value={ayah.text} readOnly />
+            <Input name="text" value={ayah.text} readOnly />
           </FormControl>
           <FormControl>
             <label>Urdu Translation:</label>
             <Input
-              onChange={(ur) => updateUrTrans(ur)}
-              name="urdu translation"
-              value={ayah.urTranslation}
+              onChange={(ur) => onValueChange(ur)}
+              name="ur"
+              value={ayah?.translation?.ur}
             />
           </FormControl>
           <FormControl>
             <label>English Translation:</label>
             <Input
-              onChange={(en) => updateEnTrans(en)}
-              name="endlish translation"
-              value={ayah.enTranslation}
+              onChange={(en) => onValueChange(en)}
+              name="en"
+              value={ayah?.translation?.en}
             />
           </FormControl>
           <FormControl>
             <label>Audio:</label>
             <Input
-              onChange={(audio) => updateAudio(audio)}
+              onChange={(audio) => onValueChange(audio)}
               name="audio"
               value={ayah.audio}
             />
@@ -120,14 +126,14 @@ const EditAyah = () => {
           <Box my={3}>
             <Button
               variant="contained"
-              onClick={() => editAyahDetails()}
+              onClick={() => editPageDetails()}
               color="primary"
               align="center"
             >
               Update Ayah
             </Button>
             <Button
-              onClick={() => history.push("/allAyahs")}
+              onClick={() => history.push("/allPages")}
               variant="contained"
               color="secondary"
               align="center"

@@ -1,13 +1,14 @@
 {
   "quran": [
     {
+      "id": 1,
+      "page": 1,
       "juz": 1,
       "juz_name": "الحمد",
-      "page": 1,
       "firstSurahName": "سورة الفاتحة",
+      "firstSurahEngName": "Al-Faatiha",
       "ayahs": [
         {
-          "id": 0,
           "number": 1,
           "name": "سورة الفاتحة",
           "englishName": "Al-Faatiha",
@@ -21,7 +22,6 @@
           "surahMessage": "الفاتحہ مومنوں کو ہدایت کرتی ہے کہ اللہ سے دعا کریں کہ وہ انہیں صراط مستقیم کی طرف رہنمائی کریں، جو کہ سچا دین ہے، اور انہیں اس زندگی میں اس راستے پر قائم رہنے میں مدد کرنے کے لیے، اور حقیقی سیرت (جہنم پر پل جس سے ہر ایک کو گزرنا ہے) سے گزرنا ہے۔ اوور) قیامت کے دن۔"
         },
         {
-          "id": 1,
           "number": 1,
           "text": "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
           "numberInSurah": 1,
@@ -59,10 +59,13 @@
           "translation": {
             "en": "In the name of Allah, the Entirely Merciful, the Especially Merciful.",
             "ur": "شروع الله کا نام لے کر جو بڑا مہربان نہایت رحم والا ہے"
+          },
+          "tafseer": {
+            "en": "In the name of Allah, the Entirely Merciful, the Especially Merciful.",
+            "ur": "شروع الله کا نام لے کر جو بڑا مہربان نہایت رحم والا ہے"
           }
         },
         {
-          "id": 2,
           "number": 2,
           "text": "الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ",
           "numberInSurah": 2,
@@ -98,12 +101,11 @@
             }
           ],
           "translation": {
-            "en": "[All] praise is [due] to Allah, Lord of the worlds -",
+            "en": "[All] praise is [due] to Allah",
             "ur": "سب تعریفیں الله کے لیے ہیں جو سب جہانوں کا پالنے والا ہے"
           }
         },
         {
-          "id": 3,
           "number": 3,
           "text": "الرَّحْمَٰنِ الرَّحِيمِ",
           "numberInSurah": 3,
@@ -139,12 +141,11 @@
             }
           ],
           "translation": {
-            "en": "The Entirely Merciful, the Especially Merciful,",
+            "en": "The Entirely Merciful ",
             "ur": "بڑا مہربان نہایت رحم والا"
           }
         },
         {
-          "id": 4,
           "number": 4,
           "text": "مَالِكِ يَوْمِ الدِّينِ",
           "numberInSurah": 4,
@@ -180,12 +181,11 @@
             }
           ],
           "translation": {
-            "en": "Sovereign of the Day of Recompense.",
+            "en": "Sovereign of the ",
             "ur": "جزا کے دن کا مالک"
           }
         },
         {
-          "id": 5,
           "number": 5,
           "text": "إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ",
           "numberInSurah": 5,
@@ -221,12 +221,11 @@
             }
           ],
           "translation": {
-            "en": "It is You we worship and You we ask for help.",
+            "en": "It",
             "ur": "ہم تیری ہی عبادت کرتے ہیں اور تجھ ہی سے مدد مانگتے ہیں"
           }
         },
         {
-          "id": 6,
           "number": 6,
           "text": "اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ",
           "numberInSurah": 6,
@@ -262,12 +261,11 @@
             }
           ],
           "translation": {
-            "en": "Guide us to the straight path -",
+            "en": "Guide us to the straight ",
             "ur": "ہمیں سیدھا راستہ دکھا"
           }
         },
         {
-          "id": 7,
           "number": 7,
           "text": "صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ",
           "numberInSurah": 7,
@@ -303,20 +301,19 @@
             }
           ],
           "translation": {
-            "en": "The path of those upon whom You have bestowed favor, not of those who have evoked [Your] anger or of those who are astray.",
+            "en": "",
             "ur": "ان لوگوں کا راستہ جن پر تو نے انعام کیا نہ جن پر تیرا غضب نازل ہوا اور نہ وہ گمراہ ہوئے"
           }
         }
-      ],
-      "number": 1,
-      "counter": 1
+      ]
     },
     {
+      "id": 2,
+      "page": 2,
       "juz": 1,
       "juz_name": "الحمد",
-      "page": 2,
       "firstSurahName": "سورة البقرة",
-      "number": 2,
+      "firstSurahEngName": "Al-Baqara",
       "ayahs": [
         {
           "number": 2,
@@ -407,7 +404,7 @@
             }
           ],
           "translation": {
-            "en": "This is the Book about which there is no doubt, a guidance for those conscious of Allah -",
+            "en": "This is the Book about which there is no doubt, a guidance for those conscious of Allah ",
             "ur": "یہ وہ کتاب ہے جس میں کوئی بھی شک نہیں پرہیز گارو ں کے لیے ہدایت ہے"
           }
         },
@@ -447,7 +444,7 @@
             }
           ],
           "translation": {
-            "en": "Who believe in the unseen, establish prayer, and spend out of what We have provided for them,",
+            "en": "Who believe in the unseen, establish prayer, and spend out of what We have provided for",
             "ur": "جو بن دیکھے ایمان لاتے ہیں اور نماز قائم کرتے ہیں ا ور جو کچھ ہم نے انہیں دیا ہے اس میں خرچ کرتے ہیں"
           }
         },
@@ -534,10 +531,12 @@
       ]
     },
     {
+      "id": 3,
+      "page": 3,
       "juz": 1,
       "juz_name": "الحمد",
-      "page": 3,
       "firstSurahName": "سورة البقرة",
+      "firstSurahEngName": "Al-Baqara",
       "ayahs": [
         {
           "number": 13,
@@ -575,7 +574,7 @@
             }
           ],
           "translation": {
-            "en": "Indeed, those who disbelieve - it is all the same for them whether you warn them or do not warn them - they will not believe.",
+            "en": "Indeed, those who disbelieve - it is all the same for them whether you warn them or do not warn them",
             "ur": "بے شک جو لوگ انکار کر چکے ہیں برابر ہے انہیں تو ڈرائے یا نہ ڈرائے وہ ایمان نہیں لائیں گے"
           }
         },
