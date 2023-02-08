@@ -57,7 +57,7 @@ const AllPages = () => {
       </TableHead>
       <TableBody>
         {page.map((data) => (
-          <TableRow className={classes.trow}>
+          <TableRow key={data.id} className={classes.trow}>
             <TableCell>{data.page}</TableCell>
             <TableCell>{data.juz}</TableCell>
             <TableCell>{data.juz_name}</TableCell>
@@ -73,7 +73,7 @@ const AllPages = () => {
                     juz_name: data.juz_name,
                     firstSurahName: data.firstSurahName,
                     firstSurahEngName: data.firstSurahEngName,
-                    ayahs: data.ayahs
+                    ayahs: data.ayahs,
                   },
                 }}
               >
