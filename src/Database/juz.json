@@ -1,0 +1,272 @@
+[
+  {
+    "juz": 1,
+    "juz_name": "الحمد",
+    "page": 1,
+    "surah": "الفاتحة",
+    "surahEnglish": "Al-Faatiha",
+    "surahNumber": 1,
+    "ayahNumber": 1
+  },
+  {
+    "juz": 2,
+    "juz_name": "سيقول",
+    "page": 22,
+    "surah": "البقرة",
+    "surahEnglish": "Al-Baqara",
+    "surahNumber": 2,
+    "ayahNumber": 141
+  },
+  {
+    "juz": 3,
+    "juz_name": "تلك الرسل",
+    "page": 42,
+    "surah": "البقرة",
+    "surahEnglish": "Al-Baqara",
+    "surahNumber": 2,
+    "ayahNumber": 252
+  },
+  {
+    "juz": 4,
+    "juz_name": "كل الطعام",
+    "page": 62,
+    "surah": "آل عمران",
+    "surahEnglish": "Aal-i-Imraan",
+    "surahNumber": 3,
+    "ayahNumber": 93
+  },
+  {
+    "juz": 5,
+    "juz_name": "والمحصنات",
+    "page": 82,
+    "surah": "النساء",
+    "surahEnglish": "An-Nisaa",
+    "surahNumber": 4,
+    "ayahNumber": 24
+  },
+  {
+    "juz": 6,
+    "juz_name": "لا يحب الله",
+    "page": 102,
+    "surah": "النساء",
+    "surahEnglish": "An-Nisaa",
+    "surahNumber": 4,
+    "ayahNumber": 147
+  },
+  {
+    "juz": 7,
+    "juz_name": "لتجدن",
+    "page": 122,
+    "surah": "المائدة",
+    "surahEnglish": "Al-Maaida",
+    "surahNumber": 5,
+    "ayahNumber": 82
+  },
+  {
+    "juz": 8,
+    "juz_name": "\tو لو أنا أنزلنا",
+    "page": 142,
+    "surah": "الأنعام",
+    "surahEnglish": "Al-An'aam",
+    "surahNumber": 6,
+    "ayahNumber": 111
+  },
+  {
+    "juz": 9,
+    "juz_name": "قال الملأ",
+    "page": 162,
+    "surah": "الأعراف",
+    "surahEnglish": "Al-A'raaf",
+    "surahNumber": 7,
+    "ayahNumber": 87
+  },
+  {
+    "juz": 10,
+    "juz_name": "و اعلموا",
+    "page": 182,
+    "surah": "الأنفال",
+    "surahEnglish": "Al-Anfaal",
+    "surahNumber": 8,
+    "ayahNumber": 40
+  },
+  {
+    "juz": 11,
+    "juz_name": "إنما السبيل",
+    "page": 201,
+    "surah": "التوبة",
+    "surahEnglish": "At-Tawba",
+    "surahNumber": 9,
+    "ayahNumber": 92
+  },
+  {
+    "juz": 12,
+    "juz_name": "وما من دابة",
+    "page": 222,
+    "surah": "هود",
+    "surahEnglish": "Hud",
+    "surahNumber": 11,
+    "ayahNumber": 5
+  },
+  {
+    "juz": 13,
+    "juz_name": "وما أبرئ نفسي",
+    "page": 242,
+    "surah": "يوسف",
+    "surahEnglish": "Yusuf",
+    "surahNumber": 12,
+    "ayahNumber": 53
+  },
+  {
+    "juz": 14,
+    "juz_name": "الر",
+    "page": 262,
+    "surah": "الحجر",
+    "surahEnglish": "Al-Hijr",
+    "surahNumber": 15,
+    "ayahNumber": 1
+  },
+  {
+    "juz": 15,
+    "juz_name": "سبحان الذي",
+    "page": 282,
+    "surah": "الإسراء",
+    "surahEnglish": "Al-Israa",
+    "surahNumber": 17,
+    "ayahNumber": 1
+  },
+  {
+    "juz": 16,
+    "juz_name": "قال ألم",
+    "page": 302,
+    "surah": "الكهف",
+    "surahEnglish": "Al-Kahf",
+    "surahNumber": 18,
+    "ayahNumber": 74
+  },
+  {
+    "juz": 17,
+    "juz_name": "اقترب للناس",
+    "page": 322,
+    "surah": "الأنبياء",
+    "surahEnglish": "Al-Anbiyaa",
+    "surahNumber": 21,
+    "ayahNumber": 1
+  },
+  {
+    "juz": 18,
+    "juz_name": "قد أفلح",
+    "page": 342,
+    "surah": "المؤمنون",
+    "surahEnglish": "Al-Muminoon",
+    "surahNumber": 23,
+    "ayahNumber": 1
+  },
+  {
+    "juz": 19,
+    "juz_name": "وقال الذين",
+    "page": 362,
+    "surah": "الفرقان",
+    "surahEnglish": "Al-Furqaan",
+    "surahNumber": 24,
+    "ayahNumber": 25
+  },
+  {
+    "juz": 20,
+    "juz_name": "فما كان",
+    "page": 382,
+    "surah": "آل النمل",
+    "surahEnglish": "An-Naml",
+    "surahNumber": 27,
+    "ayahNumber": 55
+  },
+  {
+    "juz": 21,
+    "juz_name": "ولا تجادلوا",
+    "page": 402,
+    "surah": "العنكبوت",
+    "surahEnglish": "Al-Ankaboot",
+    "surahNumber": 29,
+    "ayahNumber": 45
+  },
+  {
+    "juz": 22,
+    "juz_name": "ومن يقنت",
+    "page": 422,
+    "surah": "الأحزاب",
+    "surahEnglish": "Al-Ahzaab",
+    "surahNumber": 33,
+    "ayahNumber": 30
+  },
+  {
+    "juz": 23,
+    "juz_name": "وما أنزلنا ",
+    "page": 442,
+    "surah": "يس",
+    "surahEnglish": "Yaseen",
+    "surahNumber": 36,
+    "ayahNumber": 27
+  },
+  {
+    "juz": 24,
+    "juz_name": "فمن أظلم",
+    "page": 462,
+    "surah": "الزمر",
+    "surahEnglish": "Az-Zumar",
+    "surahNumber": 39,
+    "ayahNumber": 30
+  },
+  {
+    "juz": 25,
+    "juz_name": "إليه يرد",
+    "page": 482,
+    "surah": "فصلت",
+    "surahEnglish": "Fussilat",
+    "surahNumber": 41,
+    "ayahNumber": 46
+  },
+  {
+    "juz": 26,
+    "juz_name": "حم تنزيل",
+    "page": 502,
+    "surah": "الأحقاف",
+    "surahEnglish": "Al-Ahqaf",
+    "surahNumber": 46,
+    "ayahNumber": 1
+  },
+  {
+    "juz": 27,
+    "juz_name": "قال فما خطبكم",
+    "page": 522,
+    "surah": "الذاريات",
+    "surahEnglish": "Adh-Dhaariyat",
+    "surahNumber": 51,
+    "ayahNumber": 30
+  },
+  {
+    "juz": 28,
+    "juz_name": "قد سمع",
+    "page": 542,
+    "surah": "المجادلة",
+    "surahEnglish": "Al-Mujaadila",
+    "surahNumber": 58,
+    "ayahNumber": 1
+  },
+  {
+    "juz": 29,
+    "juz_name": "تبارك",
+    "page": 562,
+    "surah": "الملك",
+    "surahEnglish": "Al-Mulk",
+    "surahNumber": 67,
+    "ayahNumber": 1
+  },
+  {
+    "juz": 30,
+    "juz_name": "عم",
+    "page": 582,
+    "surah": "النبأ",
+    "surahEnglish": "An-Naba",
+    "surahNumber": 78,
+    "ayahNumber": 1
+  }
+]

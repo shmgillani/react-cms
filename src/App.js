@@ -5,6 +5,7 @@ import AllUsers from "./Components/AllUsers";
 import AddUser from "./Components/AddUser";
 import EditUser from "./Components/EditUser";
 import NotFound from "./Components/NotFound";
+import AllJuz from "./Components/AllJuz";
 import AllPages from "./Components/AllPages";
 import AllAyahs from "./Components/AllAyahs";
 import EditAyah from "./Components/EditAyah";
@@ -19,7 +20,8 @@ function App() {
         <Route path="/all" component={AllUsers} exact />
         <Route path="/add" component={AddUser} exact />
         <Route path="/edit/:id" component={EditUser} exact />
-        <Route path= "/allPages" component = {AllPages} exact />
+        <Route path= "/allJuz" component={AllJuz} exact/>
+        <Route path= "/allPages/:juzId" component = {AllPages} exact />
         <Route path="/allAyahs/:pageId" component={AllAyahs} exact />
         <Route path="/editAyah/:number" component={EditAyah} exact />
         <Route component={NotFound} />

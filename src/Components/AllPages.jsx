@@ -9,8 +9,8 @@ import {
   Button,
 } from "@material-ui/core";
 import { getAllPages } from "../service/api";
-import { Link } from "react-router-dom";
-import { Howl, Howler } from "howler";
+import j from "../Database/juz.json";
+import { Link, useLocation } from "react-router-dom";
 const useStyle = makeStyles({
   table: {
     width: "80%",
@@ -32,6 +32,7 @@ const useStyle = makeStyles({
 
 const AllPages = () => {
   const classes = useStyle();
+  const { query } = useLocation();
 
   const [page, setPage] = useState([]);
   useEffect(() => {
@@ -40,8 +41,9 @@ const AllPages = () => {
 
   const getPages = async () => {
     const response = await getAllPages();
-    console.log(response.data);
-    setPage(response.data);
+    const res = response.data.filter((element)=> element.juz == query.juzId);
+    // console.log("-----------------------", res);
+    setPage(res);
   };
 
   return (
@@ -56,24 +58,24 @@ const AllPages = () => {
         </TableRow>
       </TableHead>
       <TableBody>
-        {page.map((data) => (
-          <TableRow key={data.id} className={classes.trow}>
-            <TableCell>{data.page}</TableCell>
-            <TableCell>{data.juz}</TableCell>
-            <TableCell>{data.juz_name}</TableCell>
-            <TableCell>{data.firstSurahName}</TableCell>
+        {page.map((e) => (
+          <TableRow key={e.id} className={classes.trow}>
+            <TableCell>{e.page}</TableCell>
+            <TableCell>{e.juz}</TableCell>
+            <TableCell>{e.juz_name}</TableCell>
+            <TableCell>{e.firstSurahName}</TableCell>
             <TableCell>
               <Link
                 to={{
-                  pathname: `/allAyahs/${data.page}`,
+                  pathname: `/allAyahs/${e.page}`,
                   query: {
-                    id: data.id,
-                    page: data.page,
-                    juz: data.juz,
-                    juz_name: data.juz_name,
-                    firstSurahName: data.firstSurahName,
-                    firstSurahEngName: data.firstSurahEngName,
-                    ayahs: data.ayahs,
+                    id: e.id,
+                    page: e.page,
+                    juz: e.juz,
+                    juz_name: e.juz_name,
+                    firstSurahName: e.firstSurahName,
+                    firstSurahEngName: e.firstSurahEngName,
+                    ayahs: e.ayahs,
                   },
                 }}
               >

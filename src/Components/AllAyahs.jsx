@@ -62,6 +62,8 @@ const AllAyahs = () => {
           <TableCell>Ayah</TableCell>
           <TableCell>Urdu Translation</TableCell>
           <TableCell>English Translation</TableCell>
+          <TableCell>Urdu Tafseer</TableCell>
+          <TableCell>English Tafseer</TableCell>
           <TableCell></TableCell>
         </TableRow>
       </TableHead>
@@ -73,6 +75,8 @@ const AllAyahs = () => {
             <TableCell>{data.text}</TableCell>
             <TableCell>{data?.translation?.ur}</TableCell>
             <TableCell>{data?.translation?.en}</TableCell>
+            <TableCell>{data?.tafseer?.ur}</TableCell>
+            <TableCell>{data?.tafseer?.en}</TableCell>
             <TableCell>
               <Link
                 to={{
@@ -91,6 +95,7 @@ const AllAyahs = () => {
                     audio: data.audio,
                     audioIdentifier: data.audioIdentifier,
                     translation: data.translation,
+                    tafseer: data.tafseer,
                     pages,
                   },
                 }}

@@ -30,60 +30,29 @@ const EditAyah = () => {
     audio: query.audio,
     audioIdentifier: query.audioIdentifier,
     translation: query.translation,
+    tafseer: query.tafseer
   };
-
-  // const loadAyahData = async () => {
-  //   const response = await getAllAyahs(query.id);
-  //   // console.log(response);
-  //   setAyah(response);
-  // };
-
-  // useEffect(() => {
-  //   loadAyahData();
-  // }, []);
 
   const [page, setPage] = useState({});
   const [ayah, setAyah] = useState(initialValue);
-  // const { ayahText, urTranslation, enTranslation, audio } = ayah;
 
-  // console.log("==========================", initialValue);
-
-  const onValueChange = (e) => {
+  const onTranslationChange = (e) => {
     const { name, value } = e.target;
-    // console.log("-------------------translation-----------------------",query.pages.ayahs[query.number].translation[name]);
     query.pages.ayahs[query.numberInPage].translation[name] = value;
 
     setPage(query.pages);
 
-    // setAyah({ ...ayah });
   };
-  // console.log("ayaah object", ayah);
-  // const updateUrTrans = (ur) => {
-  //   let newAyah = [...ayah];
-  //   newAyah.map((data) => (data.translation.ur = ur));
-  //   setAyah(newAyah);
-  // };
 
-  // const updateEnTrans = (en) => {
-  //   en.preventDefault();
-  //   let newAyah = [...ayah];
-  //   // console.log(newAyah);
-  //   newAyah.map((data) => {
-  //     console.log(en);
-  //     // data.translation.en = en;
-  //   });
-  //   setAyah(newAyah);
-  //   console.log("----------------", ayah);
-  // };
+  const onTafseerChange = (e) => {
+    const { name, value } = e.target;
+    query.pages.ayahs[query.numberInPage].tafseer[name] = value;
 
-  // const updateAudio = (audio) => {
-  //   let newAyah = [...ayah];
-  //   newAyah.map((data) => (data.translation.audio = audio));
-  //   setAyah(newAyah);
-  // };
+    setPage(query.pages);
 
+  };
+  
   const editPageDetails = async () => {
-    // console.log("--------------------------------------", page);
     await editPage(query.pages.id, page);
     history.push(`/allPages`);
   };
@@ -102,7 +71,7 @@ const EditAyah = () => {
           <FormControl>
             <label>Urdu Translation:</label>
             <Input
-              onChange={(ur) => onValueChange(ur)}
+              onChange={(ur) => onTranslationChange(ur)}
               name="ur"
               value={ayah?.translation?.ur}
             />
@@ -110,15 +79,30 @@ const EditAyah = () => {
           <FormControl>
             <label>English Translation:</label>
             <Input
-              onChange={(en) => onValueChange(en)}
+              onChange={(en) => onTranslationChange(en)}
               name="en"
               value={ayah?.translation?.en}
             />
           </FormControl>
           <FormControl>
+            <label>Urdu Tafseer:</label>
+            <Input
+              onChange={(ur) => onTafseerChange(ur)}
+              name="ur"
+              value={ayah?.tafseer?.ur}
+            />
+          </FormControl>
+          <FormControl>
+            <label>English Tafseer:</label>
+            <Input
+              onChange={(en) => onTafseerChange(en)}
+              name="en"
+              value={ayah?.tafseer?.en}
+            />
+          </FormControl>
+          <FormControl>
             <label>Audio:</label>
             <Input
-              onChange={(audio) => onValueChange(audio)}
               name="audio"
               value={ayah.audio}
             />

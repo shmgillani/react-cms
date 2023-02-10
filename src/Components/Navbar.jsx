@@ -31,9 +31,9 @@ const Navbar = () => {
           {" "}
           Add Users
         </NavLink>
-        <NavLink to="/allPages" className={classes.spacing}>
+        <NavLink to="/allJuz" className={classes.spacing}>
           {" "}
-          Quran By Pages
+          All Juz
         </NavLink>
       </Toolbar>
     </AppBar>
