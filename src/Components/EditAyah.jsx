@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Container,
   Typography,
@@ -10,51 +10,44 @@ import {
   Button,
 } from "@material-ui/core";
 import { editPage } from "../service/api";
-import { useHistory, useLocation } from "react-router-dom";
+import { useHistory, useLocation, useParams } from "react-router-dom";
 
 const EditAyah = () => {
   const history = useHistory();
   const { query } = useLocation();
+  const params = useParams();
 
-  let initialValue = {
-    number: query.number,
-    text: query.text,
-    numberInSurah: query.numberInSurah,
-    juz: query.juz,
-    juz_name: query.juz_name,
-    page: query.page,
-    hizbQuarter: query.hizbQuarter,
-    ayahsNumber: query.ayahsNumber,
-    surahNumber: query.surahNumber,
-    numberInPage: query.numberInPage,
-    audio: query.audio,
-    audioIdentifier: query.audioIdentifier,
-    translation: query.translation,
-    tafseer: query.tafseer
-  };
+  // console.log("=====================================", query);
 
   const [page, setPage] = useState({});
-  const [ayah, setAyah] = useState(initialValue);
+  const [ayah, setAyah] = useState({});
+
+  // useEffect(async () => {
+
+  // }, [ayah]);
+
+  useEffect(() => {
+    setAyah(JSON.parse(localStorage.getItem("ayah")));
+    setPage(JSON.parse(localStorage.getItem("page")));
+  }, []);
 
   const onTranslationChange = (e) => {
     const { name, value } = e.target;
-    query.pages.ayahs[query.numberInPage].translation[name] = value;
+    page.ayahs[ayah.numberInPage].translation[name] = value;
 
-    setPage(query.pages);
-
+    setPage(page);
   };
 
   const onTafseerChange = (e) => {
     const { name, value } = e.target;
-    query.pages.ayahs[query.numberInPage].tafseer[name] = value;
+    page.ayahs[ayah.numberInPage].tafseer[name] = value;
 
-    setPage(query.pages);
-
+    setPage(page);
   };
-  
+
   const editPageDetails = async () => {
-    await editPage(query.pages.id, page);
-    history.push(`/allPages`);
+    await editPage(page.id, page);
+    history.push(`/allAyahs/${page.id}`);
   };
 
   return (
@@ -65,11 +58,11 @@ const EditAyah = () => {
         </Typography>
         <FormGroup>
           <FormControl>
-            <label>Ayah:</label>
+            <InputLabel>Ayah:</InputLabel>
             <Input name="text" value={ayah.text} readOnly />
           </FormControl>
           <FormControl>
-            <label>Urdu Translation:</label>
+            <InputLabel>Urdu Translation:</InputLabel>
             <Input
               onChange={(ur) => onTranslationChange(ur)}
               name="ur"
@@ -77,7 +70,7 @@ const EditAyah = () => {
             />
           </FormControl>
           <FormControl>
-            <label>English Translation:</label>
+            <InputLabel>English Translation:</InputLabel>
             <Input
               onChange={(en) => onTranslationChange(en)}
               name="en"
@@ -85,7 +78,7 @@ const EditAyah = () => {
             />
           </FormControl>
           <FormControl>
-            <label>Urdu Tafseer:</label>
+            <InputLabel>Urdu Tafseer:</InputLabel>
             <Input
               onChange={(ur) => onTafseerChange(ur)}
               name="ur"
@@ -93,7 +86,7 @@ const EditAyah = () => {
             />
           </FormControl>
           <FormControl>
-            <label>English Tafseer:</label>
+            <InputLabel>English Tafseer:</InputLabel>
             <Input
               onChange={(en) => onTafseerChange(en)}
               name="en"
@@ -101,11 +94,8 @@ const EditAyah = () => {
             />
           </FormControl>
           <FormControl>
-            <label>Audio:</label>
-            <Input
-              name="audio"
-              value={ayah.audio}
-            />
+            <InputLabel>Audio:</InputLabel>
+            <Input name="audio" value={ayah.audio} />
           </FormControl>
           <Box my={3}>
             <Button
@@ -117,7 +107,7 @@ const EditAyah = () => {
               Update Ayah
             </Button>
             <Button
-              onClick={() => history.push("/allPages")}
+              onClick={() => history.push(`/allAyahs/${page.id}`)}
               variant="contained"
               color="secondary"
               align="center"

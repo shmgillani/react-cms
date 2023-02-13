@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import {
   Table,
   TableCell,
@@ -8,7 +8,6 @@ import {
   makeStyles,
   Button,
 } from "@material-ui/core";
-import { getAllPages } from "../service/api";
 import data from "../Database/juz.json";
 import { Link } from "react-router-dom";
 const useStyle = makeStyles({
@@ -51,7 +50,6 @@ const AllJuz = () => {
               <Link
                 to={{
                   pathname: `/allPages/${d.juz}`,
-                  query: { juzId: d.juz}
                 }}
               >
                 <Button

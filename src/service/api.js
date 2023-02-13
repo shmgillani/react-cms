@@ -14,7 +14,7 @@ export const addUser = async (user) => {
 };
 
 export const editUser = async (id, user) => {
-  console.log("------------------", id, "++++++++++", user);
+  // console.log("------------------", id, "++++++++++", user);
   return await axios.put(`${userUrl}/${id}`, user);
 };
 
@@ -40,7 +40,7 @@ export const getAllAyahs = async (number) => {
 export const getAllPages = async (id) => {
   id = id || "";
   let pages = await axios.get(`${quranUrl}/${id}`);
-  console.log("---------------------", pages);
+  // console.log("---------------------", pages);
   return pages;
 };
 

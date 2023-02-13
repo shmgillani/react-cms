@@ -8,7 +8,9 @@ import {
   makeStyles,
   Button,
 } from "@material-ui/core";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
+import { getAllPages } from "../service/api";
+
 const useStyle = makeStyles({
   table: {
     width: "80%",
@@ -32,26 +34,37 @@ const AllAyahs = () => {
   const classes = useStyle();
   const { query } = useLocation();
 
-  let pages = {
-    id: query.id,
-    page: query.page,
-    juz: query.juz,
-    juz_name: query.juz_name,
-    firstSurahName: query.firstSurahName,
-    firstSurahEngName: query.firstSurahEngName,
-    ayahs: query.ayahs,
-  };
+  const params = useParams();
+  // console.log("+++++++++++++++++++++++++++++", params);
 
   const [ayah, setAyah] = useState([]);
+  const [pages, setPages] = useState({});
+
+  const getPages = async () => {
+    const response = await getAllPages();
+    // console.log("+++++++++++++++++++++++++++", res);
+    return response;
+  };
+  useEffect(async () => {
+    let res = await getPages();
+    localStorage.setItem(
+      "page",
+      JSON.stringify(res.data.find((element) => element.id == params.pageId))
+    );
+  }, [ayah]);
+
   useEffect(() => {
-    getAyahs();
+    setPages(JSON.parse(localStorage.getItem("page")));
+    setAyah(
+      JSON.parse(localStorage.getItem("page")).ayahs?.filter(
+        (ayah) => !ayah.hasOwnProperty("name")
+      )
+    );
   }, []);
 
-  const getAyahs = async () => {
-    let ayahs = pages.ayahs.filter((ayah) => !ayah.hasOwnProperty("name"));
-    // console.log("++++++++++++++++++++", ayahs);
-    setAyah(ayahs);
-  };
+  
+
+  // console.log("====================================", params);
 
   return (
     <Table className={classes.table}>
@@ -68,49 +81,42 @@ const AllAyahs = () => {
         </TableRow>
       </TableHead>
       <TableBody>
-        {ayah.map((data) => (
-          <TableRow key={data.number} className={classes.trow}>
-            <TableCell>{data.number}</TableCell>
-            <TableCell>{data.numberInSurah}</TableCell>
-            <TableCell>{data.text}</TableCell>
-            <TableCell>{data?.translation?.ur}</TableCell>
-            <TableCell>{data?.translation?.en}</TableCell>
-            <TableCell>{data?.tafseer?.ur}</TableCell>
-            <TableCell>{data?.tafseer?.en}</TableCell>
-            <TableCell>
-              <Link
-                to={{
-                  pathname: `/editAyah/${data.number}`,
-                  query: {
-                    number: data.number,
-                    text: data.text,
-                    numberInSurah: data.numberInSurah,
-                    juz: data.juz,
-                    juz_name: data.juz_name,
-                    page: data.page,
-                    hizbQuarter: data.hizbQuarter,
-                    ayahsNumber: data.ayahsNumber,
-                    surahNumber: data.surahNumber,
-                    numberInPage: data.numberInPage,
-                    audio: data.audio,
-                    audioIdentifier: data.audioIdentifier,
-                    translation: data.translation,
-                    tafseer: data.tafseer,
-                    pages,
-                  },
-                }}
-              >
-                <Button
-                  variant="contained"
-                  color="primary"
-                  style={{ margin: "0px 20px" }}
-                >
-                  Edit
-                </Button>
-              </Link>
-            </TableCell>
-          </TableRow>
-        ))}
+        {ayah?.length
+          ? ayah.map((data) => (
+              <TableRow key={data.number} className={classes.trow}>
+                <TableCell>{data.number}</TableCell>
+                <TableCell>{data.numberInSurah}</TableCell>
+                <TableCell>{data.text}</TableCell>
+                <TableCell>{data?.translation?.ur}</TableCell>
+                <TableCell>{data?.translation?.en}</TableCell>
+                <TableCell>{data?.tafseer?.ur}</TableCell>
+                <TableCell>{data?.tafseer?.en}</TableCell>
+                <TableCell>
+                  <Link
+                    to={{
+                      pathname: `/editAyah/${data.number}`,
+                    }}
+                  >
+                    <Button
+                      variant="contained"
+                      color="primary"
+                      style={{ margin: "0px 20px" }}
+                      onClick = {() => {localStorage.setItem(
+                        "ayah",
+                        JSON.stringify(data)
+                      )
+                      localStorage.setItem(
+                        "page",
+                        JSON.stringify(pages)
+                      )}}
+                    >
+                      Edit
+                    </Button>
+                  </Link>
+                </TableCell>
+              </TableRow>
+            ))
+          : ""}
       </TableBody>
     </Table>
   );

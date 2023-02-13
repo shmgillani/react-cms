@@ -9,8 +9,7 @@ import {
   Button,
 } from "@material-ui/core";
 import { getAllPages } from "../service/api";
-import j from "../Database/juz.json";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 const useStyle = makeStyles({
   table: {
     width: "80%",
@@ -32,19 +31,34 @@ const useStyle = makeStyles({
 
 const AllPages = () => {
   const classes = useStyle();
-  const { query } = useLocation();
+  // const { params } = useLocation();
+  const params = useParams();
 
-  const [page, setPage] = useState([]);
-  useEffect(() => {
-    getPages();
-  }, []);
+  const [pages, setPage] = useState([]);
 
   const getPages = async () => {
     const response = await getAllPages();
-    const res = response.data.filter((element)=> element.juz == query.juzId);
-    // console.log("-----------------------", res);
-    setPage(res);
+    // console.log("+++++++++++++++++++++++++++", res);
+    return response;
   };
+
+  // console.log("+++++++++++++++++++++", pages);
+
+  useEffect(async () => {
+    let res = await getPages();
+    // console.log("================================", res);
+    localStorage.setItem(
+      "pages",
+      JSON.stringify(res.data.filter((element) => element.juz == params.juzId))
+    );
+  }, [pages]);
+
+  useEffect(() => {
+    setPage(JSON.parse(localStorage.getItem("pages")));
+  }, []);
+  
+
+  // console.log("====================================", pages);
 
   return (
     <Table className={classes.table}>
@@ -58,7 +72,7 @@ const AllPages = () => {
         </TableRow>
       </TableHead>
       <TableBody>
-        {page.map((e) => (
+        {pages.map((e) => (
           <TableRow key={e.id} className={classes.trow}>
             <TableCell>{e.page}</TableCell>
             <TableCell>{e.juz}</TableCell>
@@ -68,15 +82,6 @@ const AllPages = () => {
               <Link
                 to={{
                   pathname: `/allAyahs/${e.page}`,
-                  query: {
-                    id: e.id,
-                    page: e.page,
-                    juz: e.juz,
-                    juz_name: e.juz_name,
-                    firstSurahName: e.firstSurahName,
-                    firstSurahEngName: e.firstSurahEngName,
-                    ayahs: e.ayahs,
-                  },
                 }}
               >
                 <Button
